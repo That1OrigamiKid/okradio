@@ -47,7 +47,6 @@
         max-width: 600px;
         border-radius: 10px;
     }
-
   </style>
 </head>
 <body>
@@ -65,10 +64,15 @@
       try {
         const response = await fetch("http://okweezradio.duckdns.org:5000/track");
         const data = await response.json();
-        document.getElementById("track").textContent = `${data.artist} - ${data.title}`;
+        console.log(data); // Log the response data to check its structure
+        if (data && data.artist && data.title) {
+          document.getElementById("track").textContent = `${data.artist} - ${data.title}`;
+        } else {
+          document.getElementById("track").textContent = "Track information unavailable";
+        }
       } catch (err) {
         document.getElementById("track").textContent = "Unable to load track info.";
-        console.error(err);
+        console.error("Error fetching track data:", err);
       }
     }
 
