@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Now Playing</title>
   <style>
-    /* Dark theme styles */
     body {
         background-color: #121212;
         color: #e0e0e0;
@@ -63,8 +62,17 @@
     async function fetchTrack() {
       try {
         const response = await fetch("http://okweezradio.duckdns.org:5000/track");
+        console.log(response); // Debug the full response
+
+        // Check if the response is okay
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
         const data = await response.json();
-        console.log(data); // Log the response data to check its structure
+        console.log("Track data:", data); // Log the received data
+
+        // Check for artist and title
         if (data && data.artist && data.title) {
           document.getElementById("track").textContent = `${data.artist} - ${data.title}`;
         } else {
@@ -77,7 +85,7 @@
     }
 
     fetchTrack();
-    setInterval(fetchTrack, 10000); // update every 10 sec
+    setInterval(fetchTrack, 10000); // Update every 10 sec
   </script>
 </body>
 </html>
