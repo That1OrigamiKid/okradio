@@ -3,48 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Now Playing - OkWeez Radio</title>
+  <title>Now Playing</title>
   <style>
-    body {
+    html, body {
+      height: 100%;
+      margin: 0;
       background-color: #121212;
       color: #ffffff;
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
     }
+
+    .center-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+    }
+
     h1 {
       color: #1db954;
+      margin-bottom: 10px;
     }
+
     #track {
       font-size: 1.5em;
-      margin-top: 10px;
+      margin-bottom: 20px;
     }
+
     audio {
-      margin-top: 20px;
-      width: 100%;
+      width: 90%;
+      max-width: 500px;
+      margin-bottom: 30px;
     }
+
     .disclaimer {
       position: fixed;
       bottom: 10px;
       right: 10px;
-      background-color: #1e1e1e;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 0.8em;
+      font-size: 0.9em;
       color: #aaaaaa;
-      max-width: 220px;
-      line-height: 1.3em;
+      background-color: #1e1e1e;
+      padding: 10px 15px;
+      border-radius: 8px;
+      max-width: 250px;
+      text-align: right;
     }
   </style>
 </head>
 <body>
-  <h1>Now Playing</h1>
-  <p id="track">Loading...</p>
+  <div class="center-content">
+    <h1>Now Playing</h1>
+    <p id="track">Loading...</p>
 
-  <audio controls autoplay>
-    <source src="https://okweezradio.duckdns.org/radio.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
+    <audio controls autoplay>
+      <source src="https://okweezradio.duckdns.org/radio.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <div class="disclaimer">
+    pls don’t sue me Weezer and Green Day — I’m just a fan and I own the CDs.
+  </div>
 
   <script>
     async function fetchTrack() {
@@ -59,11 +80,7 @@
     }
 
     fetchTrack();
-    setInterval(fetchTrack, 10000); // update every 10 sec
+    setInterval(fetchTrack, 10000);
   </script>
-
-  <div class="disclaimer">
-    pls don’t sue me Weezer and Green Day — I’m just a fan and I own the CDs.
-  </div>
 </body>
 </html>
