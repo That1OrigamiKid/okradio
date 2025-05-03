@@ -5,18 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OkWeez Radio</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        #track { font-size: 20px; }
+        /* Dark theme styles */
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1, h2 {
+            color: #ffffff;
+            text-align: center;
+        }
+
+        #track {
+            font-size: 20px;
+            margin: 10px;
+            color: #bbb;
+            text-align: center;
+        }
+
+        audio {
+            margin-top: 20px;
+            border-radius: 10px;
+            background-color: #333;
+        }
+
+        /* Optional dark border around the page */
+        .container {
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+        }
+
     </style>
 </head>
 <body>
-    <h1>Welcome to OkWeez Radio</h1>
-    <h2>Now Playing:</h2>
-    <p id="track">Loading...</p>
-    <audio controls autoplay>
-        <source src="https://okweezradio.duckdns.org/radio.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
+    <div class="container">
+        <h1>Welcome to OkWeez Radio</h1>
+        <h2>Now Playing:</h2>
+        <p id="track">Loading...</p>
+        <audio controls autoplay>
+            <source src="https://okweezradio.duckdns.org/radio.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 
     <script>
         async function fetchTrack() {
