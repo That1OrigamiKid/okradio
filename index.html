@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Okweez Radio</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      background-color: #121212;
+      color: #ffffff;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+    audio {
+      width: 80%;
+      max-width: 400px;
+      outline: none;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.8em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h1>Okweez Radio</h1>
+  <p>Streaming live 24/7 from the Raspberry Pi!</p>
+  <audio controls autoplay>
+    <source src="http://okweezradio.duckdns.org:30/radio.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <footer>
+    Powered by Icecast & Raspberry Pi
+  </footer>
+</body>
+</html>
